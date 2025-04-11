@@ -1,0 +1,605 @@
+
+@font-face {
+    font-family: 'Nevis'; 
+    src: url('/fonts/nevis.ttf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+  
+  @font-face {
+    font-family: 'MerriThick'; 
+    src: url('fonts/Merriweather-Black.ttf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+
+  @font-face {
+    font-family: 'MerriLight'; 
+    src: url('/fonts/Merriweather-Light.ttf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+
+  
+
+:root {
+    --text-primary: #17252A;
+    --secondary: #336666;
+    --background: #3AAFA9;
+    --separator: #DEF2F1;
+    --white: #FEFFFF;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: MerriLight ,system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--secondary);
+} 
+
+h1, h2, h3 {
+    font-family: 'Nevis', system-ui, sans-serif;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+h1 { font-size: 5vw; }
+h2 { font-size: 5vw; }
+h3 { font-size: 1em; }
+p {font-size: 1em;}
+
+h1, h2 {
+    color: var(--white  );
+    text-transform: none;
+}
+
+/* Header & Navigation */
+.header {
+    width: 100%;
+    padding: 1rem;
+}
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1001;
+}
+
+.menu-icon {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--white);
+    position: relative;
+    transition: var(--transition);
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.menu-icon::before { top: -0.5rem; }
+.menu-icon::after { top: 0.5rem; }
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: var(--transition);
+    visibility: hidden; /* Hide it completely */
+}
+
+.nav.active {
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    list-style: none;
+    text-align: center;
+    padding: 2rem;
+    background-color:var(--background);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.25rem;
+    position: relative;
+    transition: var(--transition);
+    font-weight: 1;
+}
+
+.nav-link:active::after {
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2rem;
+    height: 2px;
+    background: var(--secondary);
+    transition:none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Sections */
+.section {
+    padding: 0 1rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    
+}
+
+/* Updated Hero Styles */
+/* Hero Section */
+.section-hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.section-hero img {
+    width:50%;
+    object-fit: cover;
+}
+
+.hero-title {
+    width: 50%;
+    padding-right: 2rem;
+}
+
+/* Existing title styles remain the same */
+.hero-title-top {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.hero-title-bottom {
+    color: var(--white);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+
+/* Projects Section */
+/* Projects Section (Mobile First) */
+#projects {
+    padding: 2rem 1rem;
+  }
+  
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Hide scrollbars */
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Each carousel slide is clickable */
+  .carousel-slide {
+    flex: 0 0 calc(100% - 2rem); /* Full width minus margins */
+    scroll-snap-align: center;
+    position: relative;
+    margin: 0 1rem;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-slide:hover {
+    transform: scale(1.03);
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: 75vh;
+    border-radius: 0.5em;
+    object-fit: cover;
+  }
+  
+  /* Title at the top of the image */
+  .project-title {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+  
+  /* Description at the bottom of the image */
+  .project-description {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+  
+  /* Navigation Dots (Mobile Only) */
+  .carousel-dots {
+    text-align: center;
+  }
+  
+  .carousel-dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .carousel-dots .dot.active {
+    background: var(--white);
+  }
+  
+  /* Arrow Icon in the bottom right of each project */
+  .carousel-slide::after {
+    content: "\2192";  /* Unicode right arrow (→) */
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;  /* Adjust size as needed */
+    color: var(--white);
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-slide:hover::after,
+  .carousel-slide:active::after {
+    transform: translateX(5px);
+  }
+
+/* Existing about section styles can be preserved if needed, then add: */
+
+/* About Content - Base Mobile Styles */
+.about-content {
+  padding: 1rem;
+}
+
+/* About Text styling */
+.about-text {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Software Icons Grid */
+.software-icons {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  margin-top: 2em;
+}
+
+/* Icon Styling */
+.software-icons .icon {
+  width: 80px;  /* adjust as needed for a small icon */
+  height: auto;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Different spin speeds for each icon */
+.spin-1 {
+  animation: spin 20s linear infinite;
+}
+
+.spin-2 {
+  animation: spin 25s linear infinite reverse;
+}
+
+.spin-3 {
+  animation: spin 30s linear infinite;
+}
+
+.spin-4 {
+  animation: spin 35s linear infinite reverse;
+}
+
+.spin-5 {
+  animation: spin 40s linear infinite;
+}
+
+.spin-6 {
+  animation: spin 45s linear infinite reverse;
+}
+
+/* Contact Section (Mobile-First) */
+.section.contact {
+  padding: 2rem 1rem;
+  text-align: center;
+  align-items:center;
+  background: var(--secondary);
+  min-height: 25vh;
+}
+
+.section.contact .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+  max-width:1000px;
+  text-align: start;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+  max-width:1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-btn {
+  display: inline-block;
+  background: var(--text-primary);
+  color: var(--white);
+  padding: 0.3em 0.5em;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  width: 10em;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: scale(1.2);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-link img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover img {
+  transform: scale(1.2);
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .carousel-dots {
+        display:none;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.4rem; }
+    h3 { font-size: 1.5rem; }
+    p {font-size: 1em;}
+
+    .nav-link:active::after {
+        background-color: var(--background)
+    }
+    .nav-link::after {
+        background-color: var(--background);
+    }
+    .menu-toggle {
+        opacity:0;
+        visibility:none;
+    }
+
+    .nav {
+        display:block;
+        position: static;
+        height: auto;
+        transform: none;
+        padding-top: 0;
+        background: transparent;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0;
+        background:none;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    #projects {
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Section Title (Outside the grid) aligned left */
+    #projects .section-title {
+      text-align: left;
+      width: 100%;
+      margin: 0 auto 1rem;
+      max-width: 1000px;
+    }
+    
+    /* Convert Carousel to Centered Grid */
+    .carousel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      overflow-x: visible;
+      max-width: 1000px;
+      scroll-snap-type: none;
+      margin: 0 auto;
+    }
+    
+    /* Each project link (slide) fills its grid cell */
+    .carousel-slide {
+      margin: 0;
+      width: 100%;
+      scroll-snap-align: none;
+      flex: none;
+      position: relative;
+    }
+    
+    /* Images: Make sure they fill the cell nicely */
+    .carousel-slide img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 0.5em;
+    }
+    
+    /* Arrow Icon in project link: reposition and reduce size */
+    .carousel-slide::after {
+      content: "\2192"; /* Right arrow */
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      font-size: 1.25rem; /* Slightly smaller */
+      color: var(--white);
+      transition: transform 0.3s ease;
+    }
+    
+    .carousel-slide:hover::after,
+    .carousel-slide:active::after {
+      transform: translateX(5px);
+    }
+
+      .about-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-bottom: 5em; 
+      }
+
+      .about-text {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+      }
+      /* You can scale up icons slightly on wider screens */
+
+      .software-icons {
+        margin-top: 4em;
+        gap: 2em;
+      }
+      .software-icons .icon {
+        width: 120px;
+      }
+
+      .contact-intro {
+        font-size: 1.2em;
+        max-width: 800px; 
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+      }
+      
+      .social-link img {
+        width: 60px;
+        height: 60px;
+        transition: transform 0.3s ease;
+      }
+      
+      .social-link:hover img {
+        transform: scale(1.2);
+      }
+    
+}
+
+/* Animations and Utilities */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section > * {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.menu-toggle.active .menu-icon {
+    background: transparent;
+}
+
+.menu-toggle.active .menu-icon::before {
+    transform: rotate(45deg) translate(0.35rem, 0.35rem);
+}
+
+.menu-toggle.active .menu-icon::after {
+    transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+}

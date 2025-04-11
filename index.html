@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jack Whitehead</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="scripts/script.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+  </head>
+  <body>
+    <!-- =======================================================
+         Navigation Section
+         ======================================================= -->
+    <header class="header">
+      <button class="menu-toggle" aria-label="Open navigation menu">
+        <span class="menu-icon"></span>
+      </button>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- =======================================================
+         Main Content Sections
+         ======================================================= -->
+    <main>
+      <!-- ---------------------------
+           Hero Section
+           --------------------------- -->
+      <section id="home" class="section-hero">
+        <img src="/images/jackground.png" alt="Design Work Example" loading="lazy" />
+        <h1 class="hero-title">
+          <span class="hero-title-top">Digital Designer</span>
+          <span class="hero-title-bottom">Jack Whitehead</span>
+        </h1>
+      </section>
+
+      <!-- ---------------------------
+           Projects Carousel Section
+           --------------------------- -->
+      <section id="projects" class="section projects">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="carousel">
+          <a href="breadbook.html" class="carousel-slide project-link">
+            <h3 class="project-title">BreadBook</h3>
+            <img src="/images/Breadbook.png" alt="BreadBook Project" loading="lazy" />
+            <p class="project-description">
+              I collaborated with a team to develop an app.
+            </p>
+          </a>
+          <a href="snowworld.html" class="carousel-slide project-link">
+            <h3 class="project-title">Snow World</h3>
+            <img src="/images/snowworld.png" alt="Project Two" loading="lazy" />
+            <p class="project-description">
+              Semantic and accessible website recreation.
+            </p>
+          </a>
+          <a href="binkyboo.html" class="carousel-slide project-link">
+            <h3 class="project-title">Gopher Game</h3>
+            <img src="/images/binkyboo.png" alt="Project Three" loading="lazy" />
+            <p class="project-description">
+              Developed a game with JavaScript, HTML, and CSS.
+            </p>
+          </a>
+          <a href="cyclesafe.html" class="carousel-slide project-link">
+            <h3 class="project-title">CycleSafe</h3>
+            <img src="/images/cyclesafe.png" alt="Project Four" loading="lazy" />
+            <p class="project-description">
+              Cross-border research to solve a complex design issue.
+            </p>
+          </a>
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <!-- ---------------------------
+           About Section
+           --------------------------- -->
+      <section id="about" class="section about">
+        <div class="about-content">
+          <h2 class="section-title">About Me</h2>
+          <p class="about-text">
+            Hi! I’m Jack, a 20-year-old student at the University of Applied Sciences (HvA). I was born and raised in Amsterdam, and I’m half British,
+            half Dutch—so I speak both languages fluently (though let’s be honest, who doesn’t nowadays?).
+          </p>
+          <p class="about-text">
+            When it comes to skills, I have a strong foundation in both design and development. I'm proficient with tools like Figma, Miro,
+            Adobe Photoshop, and Illustrator, and I’m comfortable navigating each stage of the design process—from desk research and
+            ideation to prototyping, testing, and iterating. Below, you’ll find icons of some of the software tools I’m familiar with.
+          </p>
+          <div class="software-icons">
+            <img src="images/softwares/figma.png" alt="Software 1" class="icon spin-1" />
+            <img src="images/softwares/adobe.png" alt="Software 2" class="icon spin-2" />
+            <img src="images/softwares/microsoft.png" alt="Software 3" class="icon spin-3" />
+            <img src="images/softwares/miro.png" alt="Software 4" class="icon spin-4" />
+            <img src="images/softwares/coding.png" alt="Software 5" class="icon spin-5" />
+            <img src="images/softwares/notion.png" alt="Software 6" class="icon spin-6" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------
+           Contact Section
+           --------------------------- -->
+      <section id="contact" class="section contact">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="contact-intro">
+          I'd love to hear from you! Whether you have a project in mind or just want to say hello, drop me a message or connect on social media.
+        </p>
+        <a href="mailto:&#106;&#97;&#99;&#107;&#64;&#119;&#104;&#105;&#116;&#101;&#104;&#101;&#97;&#100;&#46;&#110;&#108;" class="contact-btn">Send Email</a>
+        <div class="social-icons">
+          <a href="https://wa.me/+31657252583" class="social-link whatsapp" target="_blank">
+            <img src="images/whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a href="https://www.linkedin.com/in/jack-whitehead-57075723a" class="social-link linkedin" target="_blank">
+            <img src="images/linkedin.png" alt="LinkedIn" />
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
