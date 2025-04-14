@@ -6,6 +6,28 @@
     --white: #FEFFFF;
     --transition: all 0.3s ease;
   }
+
+@font-face {
+    font-family: 'Nevis'; 
+    src: url('fonts/nevis.ttf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+  
+  @font-face {
+    font-family: 'MerriThick'; 
+    src: url('fonts/Merriweather-Black.ttf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+
+  @font-face {
+    font-family: 'MerriLight'; 
+    src: url('fonts/Merriweather-Light.ttf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+
   
   body {
     margin: 0;
